@@ -29,12 +29,12 @@ public class Lejano : MonoBehaviour
     private Renderer rend;
     private Color colorOriginal;
 
-    public void OnSelectEnter(SelectEnterEventArgs informacionSelect)
+    public void OnSelectEnter(SelectEnterEventArgs args)
     {
         rend.material.color = Color.red;
     }
 
-    public void OnSelectExit(SelectExitEventArgs informacionSelect)
+    public void OnSelectExit(SelectExitEventArgs args)
     {
         rend.material.color = colorOriginal;
     }
