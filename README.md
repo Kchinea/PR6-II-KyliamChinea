@@ -57,3 +57,8 @@ public class Lejano : MonoBehaviour
 No obstante en la sesión espero pder entrar al proyecto que tenia en el ordenador de el centro de calculo y añadir los scripts y comprobar que funcionan.
 
 ![GamePlay](./Pract-6-GIF.gif)
+
+
+## Enlaces de interes
+
+[Documentacion XR Interaction Toolkit](https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit@3.1/api/UnityEngine.XR.Interaction.Toolkit.HoverEnterEventArgs.html)
