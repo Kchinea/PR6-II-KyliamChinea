@@ -55,3 +55,5 @@ public class Lejano : MonoBehaviour
 ```
 
 No obstante en la sesión espero pder entrar al proyecto que tenia en el ordenador de el centro de calculo y añadir los scripts y comprobar que funcionan.
+
+![GamePlay](./Pract-6-GIF.gif)
