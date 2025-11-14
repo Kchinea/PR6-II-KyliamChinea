@@ -9,11 +9,16 @@ Script parea el cubo cercano:
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class MensajeAlAgarrar : MonoBehaviour
+public class Cercano : MonoBehaviour
 {
-    public void OnSelectEnter(SelectEnterEventArgs args)
+    public void OnSelect(SelectEnterEventArgs args)
     {
-        Debug.Log("Se ha agarrado el cubo");
+        Debug.Log("Se ha cogido el cubo");
+    }
+    void Start()
+    {
+        var interactable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
+        interactable.selectEntered.AddListener(OnSelect);
     }
 }
 ```
@@ -26,22 +31,25 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Lejano : MonoBehaviour
 {
-    private Renderer rend;
-    private Color colorOriginal;
+    private MeshRenderer rend;
+    private Color originalColor;
 
-    public void OnSelectEnter(SelectEnterEventArgs args)
+    public void OnSelect(SelectEnterEventArgs args)
     {
         rend.material.color = Color.red;
     }
 
-    public void OnSelectExit(SelectExitEventArgs args)
+    public void OnDeselect(SelectExitEventArgs args)
     {
-        rend.material.color = colorOriginal;
+        rend.material.color = originalColor;
     }
     void Start()
     {
-        rend = gameObject.GetComponent<Renderer>();
-        colorOriginal = rend.material.color;
+        rend = gameObject.GetComponent<MeshRenderer>();
+        originalColor = rend.material.color;
+        var interactable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRBaseInteractable>();
+        interactable.selectEntered.AddListener(OnSelect);
+        interactable.selectExited.AddListener(OnDeselect);
     }
 }
 ```
