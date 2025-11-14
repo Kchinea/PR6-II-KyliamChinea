@@ -34,12 +34,12 @@ public class Lejano : MonoBehaviour
     private MeshRenderer rend;
     private Color originalColor;
 
-    public void OnSelect(SelectEnterEventArgs args)
+    public void OnHoverEnter(SelectEnterEventArgs args)
     {
         rend.material.color = Color.red;
     }
 
-    public void OnDeselect(SelectExitEventArgs args)
+    public void OnHoverExit(SelectExitEventArgs args)
     {
         rend.material.color = originalColor;
     }
@@ -48,8 +48,8 @@ public class Lejano : MonoBehaviour
         rend = gameObject.GetComponent<MeshRenderer>();
         originalColor = rend.material.color;
         var interactable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRBaseInteractable>();
-        interactable.selectEntered.AddListener(OnSelect);
-        interactable.selectExited.AddListener(OnDeselect);
+        interactable.hoverEntered.AddListener(OnHoverEnter);
+        interactable.hoverExited.AddListener(OnHoverExit);
     }
 }
 ```
